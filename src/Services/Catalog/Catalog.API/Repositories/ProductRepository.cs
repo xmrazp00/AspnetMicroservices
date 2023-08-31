@@ -1,7 +1,6 @@
 ﻿using Catalog.API.Data;
 using Catalog.API.Entities;
 using MongoDB.Driver;
-using System.Xml.Linq;
 
 namespace Catalog.API.Repositories;
 
@@ -45,15 +44,15 @@ public class ProductRepository : IProductRepository
 
     public async Task<bool> UpdateProduct(Product product)
     {
-        var updateResult = await _context.Products.ReplaceOneAsync(filter: g => g.Id == product.Id, replacement: product);
+        var updateResult = await _context.Products.ReplaceOneAsync(g => g.Id == product.Id, product);
 
         return updateResult.IsAcknowledged
-            && updateResult.ModifiedCount > 0;
+               && updateResult.ModifiedCount > 0;
     }
 
     public async Task<bool> DeleteProduct(string id)
     {
-        var deleteResult = await _context.Products.DeleteOneAsync(filter: g => g.Id == id);
+        var deleteResult = await _context.Products.DeleteOneAsync(g => g.Id == id);
 
         return deleteResult.IsAcknowledged
                && deleteResult.DeletedCount > 0;
