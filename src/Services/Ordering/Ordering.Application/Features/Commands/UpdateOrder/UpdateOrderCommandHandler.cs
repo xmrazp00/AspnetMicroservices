@@ -1,15 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using AutoMapper;
+﻿using AutoMapper;
 using MediatR;
 using Microsoft.Extensions.Logging;
-using Ordering.Application.Contracts.Infrastructure;
 using Ordering.Application.Contracts.Persistance;
 using Ordering.Application.Exceptions;
-using Ordering.Application.Features.Commands.CheckoutOrder;
 using Ordering.Domain.Entities;
 
 namespace Ordering.Application.Features.Commands.UpdateOrder
@@ -34,7 +27,7 @@ namespace Ordering.Application.Features.Commands.UpdateOrder
             if (orderToUpdate == null)
             {
                 _logger.LogError("Order not exist in the DB");
-                 throw new NotFoundException(nameof(Order), request.Id);
+                throw new NotFoundException(nameof(Order), request.Id);
             }
 
             _mapper.Map(request, orderToUpdate);

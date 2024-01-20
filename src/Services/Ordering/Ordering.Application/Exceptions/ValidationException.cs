@@ -1,16 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using FluentValidation.Results;
+﻿using FluentValidation.Results;
 
 namespace Ordering.Application.Exceptions
 {
     public class ValidationException : ApplicationException
     {
         public IDictionary<string, string[]> Errors { get; set; }
-        public ValidationException(): base("One or more validation failures have occurred.")
+        public ValidationException() : base("One or more validation failures have occurred.")
         {
             Errors = new Dictionary<string, string[]>();
         }

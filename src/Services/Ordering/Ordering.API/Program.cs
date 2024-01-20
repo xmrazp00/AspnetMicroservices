@@ -34,7 +34,7 @@ builder.Services.AddMassTransit(c =>
             cc.ConfigureConsumer<BasketCheckoutConsumer>(context);
         });
     });
-    
+
 });
 
 var app = builder.Build();

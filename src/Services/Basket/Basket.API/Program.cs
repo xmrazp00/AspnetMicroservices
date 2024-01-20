@@ -22,7 +22,7 @@ namespace Basket.API
             {
                 opt.Configuration = builder.Configuration.GetValue<string>("CacheSettings:ConnectionString");
             });
-            
+
             builder.Services.AddScoped<IBasketRepository, BasketRepository>();
             builder.Services.AddScoped<DiscountGrpcService>();
             builder.Services.AddGrpcClient<DiscountProtoService.DiscountProtoServiceClient>(o =>

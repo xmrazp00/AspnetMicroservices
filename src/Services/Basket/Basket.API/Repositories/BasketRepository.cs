@@ -1,8 +1,6 @@
-﻿using System.Text.Json.Serialization;
-using Basket.API.Entities;
+﻿using Basket.API.Entities;
 using Microsoft.Extensions.Caching.Distributed;
 using Newtonsoft.Json;
-using JsonConverter = System.Text.Json.Serialization.JsonConverter;
 
 namespace Basket.API.Repositories;
 
@@ -14,7 +12,7 @@ public class BasketRepository : IBasketRepository
     {
         _redisCache = redisCache ?? throw new ArgumentNullException(nameof(redisCache));
     }
-    
+
     public async Task<ShoppingCart> GetBasket(string userName)
     {
         var basket = await _redisCache.GetStringAsync(userName);

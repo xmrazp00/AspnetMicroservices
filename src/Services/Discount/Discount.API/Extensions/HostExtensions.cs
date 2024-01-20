@@ -1,5 +1,4 @@
-﻿using Microsoft.Extensions.Configuration;
-using Npgsql;
+﻿using Npgsql;
 
 namespace Discount.API.Extensions
 {

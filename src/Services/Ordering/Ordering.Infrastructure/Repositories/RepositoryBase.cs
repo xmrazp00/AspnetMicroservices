@@ -1,13 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Linq.Expressions;
-using System.Text;
-using System.Threading.Tasks;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using Ordering.Application.Contracts.Persistance;
 using Ordering.Domain.Common;
 using Ordering.Infrastructure.Persistence;
+using System.Linq.Expressions;
 
 namespace Ordering.Infrastructure.Repositories
 {
@@ -23,7 +18,7 @@ namespace Ordering.Infrastructure.Repositories
         public async Task<IReadOnlyList<T>> GetAllAsync()
         {
             return await _dbContext.Set<T>().ToListAsync();
-        } 
+        }
 
         public async Task<IReadOnlyList<T>> GetAsync(Expression<Func<T, bool>> predicate)
         {
