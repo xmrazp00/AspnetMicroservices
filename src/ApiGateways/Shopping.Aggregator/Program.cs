@@ -20,15 +20,15 @@ namespace Shopping.Aggregator
                 opt.BaseAddress = new Uri(builder.Configuration["ApiSettings:CatalogUrl"]);
             });
 
-            //builder.Services.AddHttpClient<IBasketService, BasketService>(opt =>
-            //{
-            //    opt.BaseAddress = new Uri(builder.Configuration["ApiSettings:BasketUrl"]);
-            //});
+            builder.Services.AddHttpClient<IBasketService, BasketService>(opt =>
+            {
+                opt.BaseAddress = new Uri(builder.Configuration["ApiSettings:BasketUrl"]);
+            });
 
-            //builder.Services.AddHttpClient<IOrderService, OrderService>(opt =>
-            //{
-            //    opt.BaseAddress = new Uri(builder.Configuration["ApiSettings:OrderingUrl"]);
-            //});
+            builder.Services.AddHttpClient<IOrderService, OrderService>(opt =>
+            {
+                opt.BaseAddress = new Uri(builder.Configuration["ApiSettings:OrderingUrl"]);
+            });
 
             var app = builder.Build();
 
